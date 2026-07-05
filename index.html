@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="Jiwesh Rajbhandari - Data Science & Finance. Quantitative research and financial analytics portfolio, presented as a Bloomberg-style terminal." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>RAJBHANDARI &lt;GO&gt; | Terminal</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0a'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='20' font-weight='700' fill='%23ff9d00' text-anchor='middle'%3EJR%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- CRT overlay -->
+  <div class="crt" aria-hidden="true"></div>
+  <div class="flicker" aria-hidden="true"></div>
+
+  <!-- BOOT / LOGIN SEQUENCE -->
+  <div id="boot" class="boot">
+    <pre id="boot-log" class="boot-log" aria-live="polite"></pre>
+    <div id="boot-cursor" class="boot-cursor">&block;</div>
+  </div>
+
+  <!-- MAIN TERMINAL -->
+  <div id="terminal" class="terminal" hidden>
+    <!-- TOP HEADER BAR -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <span class="brand">JR<span class="brand-accent">TERMINAL</span></span>
+        <span class="sep">|</span>
+        <span class="user">USER: <b>JRAJBHANDARI</b></span>
+      </div>
+      <div class="topbar-right">
+        <span id="market-status" class="mkt-status">MKT</span>
+        <span class="sep">|</span>
+        <span id="clock" class="clock">--:--:--</span>
+        <span class="sep">|</span>
+        <button id="mute-btn" class="mute-btn" title="Toggle sound (MUTE)" aria-label="Toggle sound">&#128266; SND</button>
+      </div>
+    </header>
+
+    <!-- LIVE TICKER TAPE -->
+    <div class="ticker-wrap" aria-label="Live market ticker">
+      <div class="ticker-label">LIVE MKT</div>
+      <div class="ticker-viewport">
+        <div id="ticker" class="ticker"></div>
+      </div>
+    </div>
+
+    <!-- COMMAND BAR -->
+    <div class="cmdbar">
+      <span class="cmd-prompt">CMD&gt;</span>
+      <div class="cmd-input-wrap">
+        <input id="cmd" class="cmd-input" type="text" autocomplete="off" autocapitalize="characters"
+               spellcheck="false" aria-label="Command input"
+               placeholder="type a command (HELP) and press ENTER" />
+        <span id="cmd-ghost" class="cmd-ghost"></span>
+      </div>
+      <button id="cmd-go" class="cmd-go">GO</button>
+    </div>
+
+    <!-- WORKSPACE (panels get injected here) -->
+    <main id="workspace" class="workspace" aria-live="polite"></main>
+
+    <!-- FUNCTION KEY BAR -->
+    <nav id="fkeys" class="fkeys" aria-label="Function keys"></nav>
+  </div>
+
+  <script src="js/content.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/ticker.js"></script>
+  <script src="js/panels.js"></script>
+  <script src="js/terminal.js"></script>
+</body>
+</html>
